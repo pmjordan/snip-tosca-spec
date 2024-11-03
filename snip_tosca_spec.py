@@ -7,10 +7,10 @@ def expand_snip(input_file_path, output_file_path):
     index = 1
     current_pattern=start_pattern
     # Open the input file for reading and the output file for writing
-    with open(input_file_path, 'r') as infile:
+    with open(input_file_path, 'r', encoding='utf-8') as infile:
         lines = infile.readlines()
 
-    with open(output_file_path, 'w') as outfile:
+    with open(output_file_path, 'w',encoding='utf-8') as outfile:
         # Process each line in the input file
         for line_number, line in enumerate(lines, start=1):
             # If the line matches the pattern
@@ -42,7 +42,7 @@ def expand_snip(input_file_path, output_file_path):
                 #haven't found the a tag
                 if (current_pattern == end_pattern) and (not(line.strip().startswith('```yaml'))):
                     #write to the snip file
-                    with open(f's{str(index)}.yaml', 'a') as snip:
+                    with open(f's{str(index)}.yaml', 'a',encoding='utf') as snip:
                         snip.write(line)
             outfile.write(line)
 
