@@ -1,7 +1,8 @@
 # Add tags to a markdown file
 
 Reads a markdown file
-Finds example code which starts with 
+Finds example code which starts with tags in HTML comments like this
+-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
 /```yaml
 and ends with 
 /```  
@@ -14,7 +15,7 @@ In a python file,
 
 ```python
 import snip-tosca-spec
-add_tag_to_markdown('input.md', 'output.md')
+expand_snip('input.md', 'output.md')
 ```
 or just copy your file into input.md and run the file:
 ```sh
