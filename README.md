@@ -17,7 +17,7 @@ In a python file,
 import snip-tosca-spec
 expand_snip('input.md', 'output.md')
 ```
-or just copy your file into input.md and run the file:
+or just copy your original file into input.md and run the file:
 ```sh
 python3 snip-tosca-spec.py
 ```
@@ -26,7 +26,4 @@ Typically you then want to patch the original, e.g. use
 $ diff -u input.md output.md > patchFile
 $ patch -R OriginalFile < patchFile
 
-(maybe necessary to use dos2unix on the original file before patching and unix2dos afterward.)
-
-TODO:
-Refactor to modules
+(Maybe necessary to use dos2unix on the original file before patching and unix2dos afterward.)
