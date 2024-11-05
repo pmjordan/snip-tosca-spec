@@ -13,15 +13,17 @@ def expand_snip(input_file_path, output_file_path):
     with open(output_file_path, 'w',encoding='utf-8') as outfile:
         # Process each line in the input file
         for line_number, line in enumerate(lines, start=1):
-            # If the line matches the pattern
+            # Check if the current line is one of interest
             if current_pattern.search(line):
-                #test the next line really is the start of some YAML (it won't be if this program ran more than once)
                 if current_pattern == start_pattern:
-                    # Check if the next line is the start of some YAML
+                    # Found a start tag
+                    # Confirm the next line is the start of some YAML
                     next_line = lines[line_number] if line_number < len(lines) else ''
-                    if next_line.strip().startswith('```yaml'):
+                    if not(next_line.strip().startswith('```yaml')):
+                        raise ValueError(f"Expected YAML start after editor tag at line {line_number+1}")
+                    else:
                         # Rewrite the line
-                        line = f'<!-- EDITOR_TAG{{"type":"example","id":"s{str(index)}","action":"start"}} -->\n'
+                        line = f'<!-- EDITOR_TAG{{"type":"example","id":"s{index}","action":"start"}} -->\n'
                         outfile.write(line)
                         # open a file for the snip
                         open_example_file(index)
@@ -29,21 +31,21 @@ def expand_snip(input_file_path, output_file_path):
                         current_pattern = end_pattern
                         # Skip to the next line
                         continue
-                    else:
-                        raise ValueError(f"Expected YAML start after editor tag at line {line_number+1}")
                 if current_pattern == end_pattern:
-                    line = f'```\n<!-- EDITOR_TAG{{"type":"example","id":"s{str(index)}","action":"end"}} -->\n'
+                    # Found an end tag
+                    line = f'```\n<!-- EDITOR_TAG{{"type":"example","id":"s{index}","action":"end"}} -->\n'
                     close_example_file(index)
                     # Now look for the start of the next snip
                     current_pattern = start_pattern
                     index += 1
-            # Write the (possibly modified) line to the output file
             else:
-                #haven't found the a tag
+                # have not yet found the end tag so line must be in an example
+                # write the snip file omitting the yaml marker
                 if (current_pattern == end_pattern) and (not(line.strip().startswith('```yaml'))):
                     #write to the snip file
-                    with open(f's{str(index)}.yaml', 'a',encoding='utf') as snip:
+                    with open(f's{str(index)}.yaml', 'a', encoding='utf-8') as snip:
                         snip.write(line)
+            # Write the (possibly modified) line to the output file
             outfile.write(line)
 
     print(f'Processed lines written to {output_file_path}')
