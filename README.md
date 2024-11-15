@@ -2,13 +2,13 @@
 
 Reads a markdown file
 Finds example code which starts with tags in HTML comments like this
--- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-/```yaml
+
+/```yaml #s1
 and ends with 
 /```  
-Adds further tag containing an serial ID before the start and another after the end
+Modifies tag to an serial ID
 
-Writes out the example between the yaml start and end to a file with a naming containing the same serial id
+Writes out the example between the yaml start and end to a file with a naming containing the same serial id and tags using AsciiDoc format.
 
 ## Example usage:
 In a python file, 
