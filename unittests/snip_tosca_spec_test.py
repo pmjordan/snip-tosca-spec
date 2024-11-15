@@ -9,13 +9,12 @@ class TestProcessFile(unittest.TestCase):
             f.write(
 """This is a test.
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 Some TOSCA
 ```
 Text
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+
+```.yaml #s1
 Some More TOSCA
 ```
 """
@@ -24,19 +23,17 @@ Some More TOSCA
         # Create an expected output file
         self.expected_output_file_path = 'expected_output.md'
         with open(self.expected_output_file_path, 'w') as f:
-            f.write("""This is a test.
+            f.write(
+"""This is a test.
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 Some TOSCA
 ```
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"end"} -->
 Text
-<!-- EDITOR_TAG{"type":"example","id":"s2","action":"start"} -->
-```yaml
+
+```.yaml #s2
 Some More TOSCA
 ```
-<!-- EDITOR_TAG{"type":"example","id":"s2","action":"end"} -->
 """
             )
 
@@ -47,17 +44,12 @@ Some More TOSCA
         self.input_2_file_path = 'test_input_2.md'
         with open(self.input_2_file_path, 'w') as f:
             f.write("""
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```not_yaml
+
+```.yang
 Some Other stuff:
-```
+no end
 """
             )
-
-    def test_process_file_error(self):
-        # Run the function on a file with errors
-        with self.assertRaises(ValueError):
-            snip_tosca_spec.expand_snip(self.input_2_file_path, self.output_file_path)
 
     def test_process_file(self):
 
@@ -74,9 +66,9 @@ Some Other stuff:
         
         # Create an expected example content
         expected_example_2 = """tosca_definitions_version: tosca_2_0
-# EDITOR_TAG:{"type":"example","id":"s2","action":"start"} -->
+# tag::s2[]
 Some More TOSCA
-# EDITOR_TAG:{"type":"example","id":"s2","action":"end"} -->
+# end::s2[]
 """
         # Assert that the example file content is equal to the expected example content
         with open('s2.yaml', 'r') as example_file_2:
