@@ -188,7 +188,7 @@ Within this document we use monospace font sections to denote code snippets,
 primarily for TOSCA (YAML), but also for other textual file formats (e.g. CSAR
 meta files). For example:
 
-```{.yaml #s1}
+```.yaml #s1
 MyMap:
   property1: value
   property2: [ value1, value2 ]
@@ -1432,7 +1432,7 @@ map of keynames with values that can use all types supported by
 the [\[YAML-1.2\] chapter 10 recommended schemas](https://yaml.org/spec/1.2.2/#chapter-10-recommended-schemas)
 as follows:
 
-```{.yaml #s1}
+```.yaml #s1
 metadata:
   <metadata_name_1>: <metadata_value_1>
   <metadata_name_2>: <metadata_value_2>
@@ -1461,7 +1461,7 @@ This optional keyname provides a means to include single or multiline
 descriptions within a TOSCA element as a *YAML string value*, as
 follows:
 
-```{.yaml #s1}
+```.yaml #s1
 description: <description_string>
 ```
 
@@ -1470,13 +1470,13 @@ string. Simple descriptions are treated as a single literal that includes
 the entire contents of the line that immediately follows the description
 keyname:
 
-```{.yaml #s1}
+```.yaml #s1
 description: This is an example of a single line description (no folding). 
 ```
 
 The following shows a multiline flow example:
 
-```{.yaml #s1}
+```.yaml #s1
 description: "A multiline description 
 using a quoted string"
 ```
@@ -1484,7 +1484,7 @@ using a quoted string"
 The YAML *folded* format may also be used for multiline descriptions,
 which *folds* line breaks as space characters:
 
-```{.yaml #s1}
+```.yaml #s1
 description: >
   This is an example of a multi-line description using YAML. It permits for line        
   breaks for easier readability...
@@ -1555,7 +1555,7 @@ keynames and associated grammars used in a TOSCA file definition.
 The mandatory `tosca_definitions_version` keyname provides a means to
 specify the TOSCA version used within the TOSCA file as follows:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: <tosca_version> 
 ```
 
@@ -1576,7 +1576,7 @@ The version for this specification is `tosca_2_0`. The following
 shows an example `tosca_definitions_version` in a TOSCA file created
 using the TOSCA Version 2.0 specification:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 ```
 
@@ -1754,7 +1754,7 @@ artifact_types:
 
 The following code snippet shows an example artifact type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 artifact_types:
   MyFile:
     derived_from: foobar:File
@@ -1820,7 +1820,7 @@ capability_types:
 
 The following code snippet shows example capability type definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 capability_types:
   MyGenericFeature:
     properties:
@@ -1854,7 +1854,7 @@ interface_types:
 
 The following code snippet shows an example interface type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 interface_types:
   Signal:
     operations:
@@ -1881,7 +1881,7 @@ relationship_types:
 
 The following code snippet shows example relationship type definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 relationship_types:
   HostedOn:
     properties:
@@ -1914,7 +1914,7 @@ node_types:
 
 The following code snippet shows example node type definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Database:
     description: A generic node type for all databases
@@ -1951,7 +1951,7 @@ group_types:
 
 The following code snippet shows an example group type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 group_types:
   MyScalingGroup:
     derived_from: foobar:MyGroup
@@ -1974,7 +1974,7 @@ policy_types:
 
 The following code snippet shows an example policy type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 policy_types:
   MyScalingPolicy:
     derived_from: foobar:Scaling
@@ -2044,7 +2044,7 @@ also use a single-line grammar as follows:
 The following example show repository definitions using both
 multiline as well as single-line grammars.
 
-```{.yaml #s1}
+```.yaml #s1
 repositories:
   my-project:
     description: My project's code repository in GitHub
@@ -2069,7 +2069,7 @@ functions:
 
 The following example shows the definition of a square root function:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   sqrt:
     signatures:
@@ -2139,13 +2139,13 @@ notation with version as a best-practice convention. For example, the
 following profile statement is used to define Version 2.0 of a set of 
 definitions suitable for describing cloud computing in an example company:
 
-```{.yaml #s1}
+```.yaml #s1
 profile: com.example.tosca_profiles.cloud_computing:2.0 
 ```
 
 The following defines a domain-specific profile for Kubernetes:
 
-```{.yaml #s1}
+```.yaml #s1
 profile: io.kubernetes:1.30
 ```
 
@@ -2211,7 +2211,7 @@ Assume a profile designer creates version 1 of a base profile that
 defines (among other things) a "Host" capability type and a
 corresponding "HostedOn" relationship type as follows:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 profile: org.base:v1
 
@@ -2231,7 +2231,7 @@ type "Host". Since the "Host" capability is defined in the
 "org.base:v1" profile, that profile must be imported as shown in the
 snippet below:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 profile: org.platform
 
@@ -2252,7 +2252,7 @@ just adds a "Credential" data type (in addition to defining the
 "Host" capability type and the "HostedOn" relationship type), as
 follows:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 profile: org.base:v2
 
@@ -2278,7 +2278,7 @@ type that has a requirement for the platform's "Host" capability. It
 also has a credential property of type "Credential" as defined in
 "org.base:v2":
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -2477,7 +2477,7 @@ import the file referenced by `<file_uri>` as follows:
 The first example shows how to use an import definition import a
 well-known profile by name:
 
-```{.yaml #s1}
+```.yaml #s1
 # Importing a profile
 imports:
 - profile: org.oasis-open.tosca.simple:2.0
@@ -2486,7 +2486,7 @@ imports:
 The next example shows an import definition used to import a
 network-accessible resource using the https protocol:
 
-```{.yaml #s1}
+```.yaml #s1
 # Absolute URL with scheme
 imports:
 - url: https://myorg.org/tosca/types/mytypes.yaml
@@ -2497,7 +2497,7 @@ located in the same repository as the importing file. The file to be
 imported is referenced using a path name that is relative to the
 location of the importing file. This example shows the short notation:
 
-```{.yaml #s1}
+```.yaml #s1
 # Short notation supported
 imports:
 - ../types/mytypes.yaml 
@@ -2505,7 +2505,7 @@ imports:
 
 The following shows the same example but using the long notation:
 
-```{.yaml #s1}
+```.yaml #s1
 # Long notation
 imports:
 - url: ../types/mytypes.yaml
@@ -2514,7 +2514,7 @@ imports:
 The following example mixes short-notation and
 long-notation import definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 # Short notation and long notation supported
 imports:
 - relative_path/my_defns/my_typesdefs_1.yaml
@@ -2526,7 +2526,7 @@ imports:
 The following example shows how to import TOSCA files using absolute
 path names (i.e. path names that start at the root of the repository):
 
-```{.yaml #s1}
+```.yaml #s1
 # Root file
 imports:
 - url: /base.yaml
@@ -2536,7 +2536,7 @@ And finally, the following shows how to import TOSCA files from a
 repository that is different than the repository that contains the
 importing TOSCA file:
 
-```{.yaml #s1}
+```.yaml #s1
 # External repository
 imports:
 - url: types/mytypes.yaml
@@ -2555,7 +2555,7 @@ contain a node type definition for "MyNode":
 
 **TOSCA File B**
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: TOSCA File B
   
@@ -2570,7 +2570,7 @@ node_types:
 
 **TOSCA File A**
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: TOSCA File A
 
@@ -2616,7 +2616,7 @@ disambiguate between the two "MyNode" type definitions. This first snippet
 shows the scenario where the "MyNode" definition from TOSCA file B is
 intended to be used:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: TOSCA file A
 
@@ -2640,7 +2640,7 @@ service_template:
 The second snippet shows the scenario where the "MyNode" definition from
 TOSCA file A is intended to be used:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: TOSCA file A
 
@@ -2671,7 +2671,7 @@ Kubernetes profile into the "k8s" namespace. It defines a "SuperPod" node
 type that derives from the "Pod" node type defined in that Kubernetes
 profile:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: mytypes.yaml
 
@@ -2690,7 +2690,7 @@ file, which defines both a node template of type "SuperPod" as well as a
 node template of type "Pod". Nested namespace names are used to identify
 the "Pod" node type from the Kubernetes profile:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: main.yaml
 
@@ -2756,7 +2756,7 @@ The overall grammar of the service_template section is shown
 below. Detailed grammar definitions are provided in subsequent
 subsections.
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   description: <template_description>
   metadata:
@@ -2861,7 +2861,7 @@ inputs:
 The following code snippet shows a simple `inputs` example without any
 validation clause:
 
-```{.yaml #s1}
+```.yaml #s1
 inputs:
   foo-name:
     type: string
@@ -2872,7 +2872,7 @@ inputs:
 The following is an example of input parameter definitions with a
 validation clause:
 
-```{.yaml #s1}
+```.yaml #s1
 inputs:
   site-name:
     type: string
@@ -2898,7 +2898,7 @@ node_templates:
 
 The following code snippet shows an example of a `node_templates` section:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   my-webapp:
     type: WebApplication
@@ -2928,7 +2928,7 @@ relationship_templates:
 The following code snippet shows an example of a `relationship_templates`
 section:
 
-```{.yaml #s1}
+```.yaml #s1
 relationship_templates:
   my-connects-to:
     type: ConnectsTo
@@ -2957,7 +2957,7 @@ outputs:
 
 The following code snippet shows an example of the `outputs` section:
 
-```{.yaml #s1}
+```.yaml #s1
 outputs:
   server-address:
     description: The first private IP address for the provisioned server.
@@ -2981,7 +2981,7 @@ workflows:
 
 The following example shows the definition of a workflow:
 
-```{.yaml #s1}
+```.yaml #s1
 workflows:
   scaling-workflow:
     steps:
@@ -3008,7 +3008,7 @@ The following example shows the definition of three "Compute" nodes in the
 `node_templates` section of a `service_template` as well as the grouping of
 two of the "Compute" nodes in group "servers":
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   server1:
     type: Compute
@@ -3045,7 +3045,7 @@ policies:
 
 The following example shows the definition of a placement policy:
 
-```{.yaml #s1}
+```.yaml #s1
 policies:
 - my-placement:
     type: Placement
@@ -3066,7 +3066,7 @@ substitution_mappings:
 
 The following code snippet shows an example substitution mapping:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
    cpus: 
@@ -3225,7 +3225,7 @@ During node type derivation, the keynames follow these rules:
 
 The following code snippet shows an example node type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 MyApp:
   derived_from: SoftwareComponent
   description: My company's custom application
@@ -3369,7 +3369,7 @@ have the following meaning:
 
 The following code snippet shows an example node template definition:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   mysql:
     type: DBMS.MySQL
@@ -3555,7 +3555,7 @@ rules:
 
 The following code snippet shows an example relationship type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 AppDependency:
   derived_from: DependsOn
   valid_capability_types: [ SomeAppFeature ]
@@ -3657,7 +3657,7 @@ have the following meaning:
 
 The following code snippet shows an example relationship template definition:
 
-```{.yaml #s1}
+```.yaml #s1
 relationship_templates:
   storage-attachment:
     type: AttachesTo
@@ -3764,7 +3764,7 @@ rules:
 The following code snippet shows an example capability type
 definition:
 
-```{.yaml #s1}
+```.yaml #s1
 MyFeature:
   description: A custom feature of my company's application
   properties:
@@ -3869,7 +3869,7 @@ in the capability type:
 
 The following code snippet shows an example capability definition:
 
-```{.yaml #s1}
+```.yaml #s1
 some-capability: 
   type: MyCapabilityTypeName
   properties:
@@ -3879,7 +3879,7 @@ some-capability:
 
 The following shows a capability definition using single-line grammar:
 
-```{.yaml #s1}
+```.yaml #s1
 some-capability: MyCapabilityTypeName
 ```
 
@@ -3990,7 +3990,7 @@ have the following meaning:
 
 The following code snippet shows an example capability assignment:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   my-node:
     capabilities:
@@ -4477,7 +4477,7 @@ defines a web application node template named
 a requirement named "host" that needs to be fulfilled by any node that
 derives from the node type "WebServer":
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-application:
@@ -4495,7 +4495,7 @@ be the specific target of the requirement in the target node.
 The following example targets a "WebServer" created from the "tomcat-server"
 template that has the same multiplicity index as the actual "my-application" node.
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-application:
@@ -4512,7 +4512,7 @@ describes a requirement for a connection to a capability of type
 the connection requires a custom relationship type
 ("CustomDbConnection") declared on the `relationship` keyname.
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-application:
@@ -4557,7 +4557,7 @@ for handling requirement counts:
 The following example illustrates requirement assignment count
 rules. It uses the types defined in the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 capability_types:
   Service:
     description: >-
@@ -4598,7 +4598,7 @@ to the upper bound of the count range.
 The following shows a valid service template that uses `Client` and
 `Server` nodes:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -4628,7 +4628,7 @@ In this example, the requirement assignments specify the target nodes
 directly, but it is also valid to leave requirements dangling as in
 the following example:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -4707,7 +4707,7 @@ Another node with "num-cpu" with value 2 could not be a valid target since
 value which is 2. Of course, similar calculations must be done for the
 "mem-size" allocation.
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-application:
@@ -4777,7 +4777,7 @@ support a specific range of CPUs (i.e., "num-cpus" value between 1 and 4)
 and memory size (i.e., "mem-size" of 2 or greater) from its declared
 "host" capability.
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-node:
@@ -4876,7 +4876,7 @@ otherwise interpret as other types.
 This following example would be invalid if there were no quotation marks
 around "0.1":
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Node:
     properties:
@@ -4942,7 +4942,7 @@ enforce most of these variations using data type [validation clauses](#validatio
 For example, this would be a custom data type for unsigned 16-bit
 integers:
 
-```{.yaml #s1}
+```.yaml #s1
 data_types:
   UInt16:
     derived_from: integer
@@ -4984,7 +4984,7 @@ integers that must be floats.
 
 Thus following example MUST NOT result in an error:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Node:
     properties:
@@ -5037,7 +5037,7 @@ help you convert arbitrary data to Base64.
 
 Example:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Node:
     properties:
@@ -5080,7 +5080,7 @@ word "null".
 
 Example:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Node:
     properties:
@@ -5103,7 +5103,7 @@ specify the null value for the property at the node template.
 
 Following is a valid example of *not* assigning a value:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Node:
     properties:
@@ -5243,7 +5243,7 @@ Note that `<unit>` is case sensitive. Implementors may guard against word overfl
 
 The following gives an example of the use of scalar:
 
-```{.yaml #s1}
+```.yaml #s1
 dsl_definitions:
   # Defined a reusable set of prefixes taken from ISO80000
   iso-prefixes: &ISO80000
@@ -5338,7 +5338,7 @@ that existed in previous versions of the TOSCA specification, such that
 these might work as drop-in replacements. Note that our versions here are all
 case-sensitive.
 
-```{.yaml #s1}
+```.yaml #s1
 dsl_definitions:
   iso-prefixes: &ISO80000
     "": 1
@@ -5461,7 +5461,7 @@ comparison as follows:
 
 The following are examples of valid TOSCA version strings:
 
-```{.yaml #s1}
+```.yaml #s1
 # basic version strings
 "6.1"
 2.0.1
@@ -5514,14 +5514,14 @@ have the following meaning:
 The following example shows a list assignment using the square bracket
 notation:
 
-```{.yaml #s1}
+```.yaml #s1
 listen-ports: [ 80, 8080 ]
 ```
 
 The following example shows the same list assignment using the
 bulleted list notation:
 
-```{.yaml #s1}
+```.yaml #s1
 listen-ports:
 - 80
 - 8080
@@ -5531,7 +5531,7 @@ The following example shows a list declaration with an entry schema
 based upon a simple integer type (which has an additional validation
 clause):
 
-```{.yaml #s1}
+```.yaml #s1
 <some_entity>:
   ...
   properties:  
@@ -5546,7 +5546,7 @@ clause):
 The following example shows a list declaration with an entry schema
 based upon a complex type:
 
-```{.yaml #s1}
+```.yaml #s1
 <some_entity>:
   ...
   properties:  
@@ -5603,7 +5603,7 @@ have the following meaning:
 The following example shows the single-line option which is useful
 for only short maps with simple entries:
 
-```{.yaml #s1}
+```.yaml #s1
 # notation option for shorter maps
 user-name-to-id: { user1: 1001, user2: 1002 }
 ```
@@ -5612,7 +5612,7 @@ The next example shows the multi-line option where each map entry is
 on a separate line; this option is typically useful or more readable
 if there is a large number of entries, or if the entries are complex.
 
-```{.yaml #s1}
+```.yaml #s1
 # notation for longer maps
 user-name-to-id:
   user1: 1001
@@ -5623,7 +5623,7 @@ The following example shows a declaration of a property of type map
 with an entry schema definition based upon the built-in string type
 (which has an additional validation clause):
 
-```{.yaml #s1}
+```.yaml #s1
 <some_entity>:
   ...
   properties:  
@@ -5638,7 +5638,7 @@ with an entry schema definition based upon the built-in string type
 The next example shows a map with an entry schema definition for
 contact information:
 
-```{.yaml #s1}
+```.yaml #s1
 <some_entity>:
   ...
   properties:  
@@ -5746,7 +5746,7 @@ During data type derivation the keyname definitions follow these rules:
 The following code snippet shows an example data type definition that
 derives from the built-in "string" type:
 
-```{.yaml #s1}
+```.yaml #s1
 ShortString:
   derived_from: string
   validation: { $less_or_equal: [ $value, 16 ] }
@@ -5754,7 +5754,7 @@ ShortString:
 
 The next example defines a complex data type that represents a phone number:
 
-```{.yaml #s1}
+```.yaml #s1
 PhoneNumber:
   properties:
     country-code:
@@ -5768,7 +5768,7 @@ PhoneNumber:
 The following example shows a complex data type that derives from and
 extends a previously defined complex data type:
 
-```{.yaml #s1}
+```.yaml #s1
 ExtendPhoneNumber:
   derived_from: PhoneNumber
   properties:
@@ -6013,7 +6013,7 @@ definitions together:
 The following code snippet shows an example property definition with a
 validation clause:
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   num-cpus:
     type: integer
@@ -6026,7 +6026,7 @@ properties:
 The following shows an example of a property refinement. Consider the
 definition of an Endpoint capability type:
 
-```{.yaml #s1}
+```.yaml #s1
 Endpoint:
   properties:
     protocol:
@@ -6046,7 +6046,7 @@ The "Endpoint.Admin" capability type refines the secure property of the
 "Endpoint" capability type from which it derives by forcing its value to
 always be true:
 
-```{.yaml #s1}
+```.yaml #s1
 Endpoint.Admin:
   derived_from: Endpoint
   # Change Endpoint secure indicator to true from its default of false
@@ -6206,7 +6206,7 @@ following refinement rules when the containing entity type is derived:
 
 The following represents a mandatory attribute definition:
 
-```{.yaml #s1}
+```.yaml #s1
 actual_cpus:
   type: integer
   description: Actual number of CPUs allocated to the node instance.
@@ -6449,7 +6449,7 @@ the containing entity type is derived:
 The following represents an example of an input parameter definition
 with a validation clause:
 
-```{.yaml #s1}
+```.yaml #s1
 inputs:
   cpus:
     type: integer
@@ -6460,7 +6460,7 @@ inputs:
 The following represents an example of an (untyped) output parameter
 definition:
 
-```{.yaml #s1}
+```.yaml #s1
 outputs:
   server-ip:
     description: The private IP address of the provisioned server.
@@ -6588,7 +6588,7 @@ The following shows an example of validation clauses used in data type
 definitions. They also illustrate the various alternatives for the
 `$value` function syntax:
 
-```{.yaml #s1}
+```.yaml #s1
 data_types:
   # Full function syntax for the $value function
   Count1:
@@ -6614,7 +6614,7 @@ data_types:
 The following shows an example of validation clauses used in property
 definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 node_types:
   Scalable:
     properties:
@@ -6686,7 +6686,7 @@ second \$ character. For example, the following is a valid map where the
 function "keygen" is called three times and the returned values are used
 as keys in the hint map:
 
-```{.yaml #s1}
+```.yaml #s1
 hint:
   { $keygen: [ UUID ] }: 34
   { $keygen$1: [ UUID ] }: 56
@@ -6710,7 +6710,7 @@ on the provided function arguments.
 The following snippet shows an example of a node template that uses a
 function to retrieve a security context at runtime:
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   context: { $get_security_context: { env: staging, role: admin } }
 ```
@@ -6719,7 +6719,7 @@ Nested functions are supported, that is, functions can be used in the
 arguments of another function. The result of the internal function will
 be passed as an argument to the outer function:
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   nested: { $outer_func: [ { $inner_func: [ iarg1, iarg2 ] }, oarg2 ] }
 ```
@@ -6727,7 +6727,7 @@ properties:
 The following snippet shows escaped strings in a map that
 do not represent function calls:
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   prop1:
    $$myid1: myval1
@@ -6776,7 +6776,7 @@ $get_input: <input_parameter_name>
 
 or
 
-```{.yaml #s1}
+```.yaml #s1
 $get_input: [ <input_parameter_name>, <nested_input_parameter_name_or_index_1>, <nested_input_parameter_name_or_index_2>, ... ]
 ```
 
@@ -6794,7 +6794,7 @@ table:
 
 The following snippet shows an example of the simple `$get_input` grammar:
 
-```{.yaml #s1}
+```.yaml #s1
 inputs:
   cpus:
     type: integer
@@ -6813,7 +6813,7 @@ The template expects two input values, each of which has a complex data
 type. The get_input function is used to retrieve individual fields from
 the complex input data.
 
-```{.yaml #s1}
+```.yaml #s1
 data_types:
   NetworkInfo:
     properties:
@@ -6881,7 +6881,7 @@ following table:
 The following example shows how to use the get_property function with an
 actual node template name:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   mysql-database:
     type: Database
@@ -6901,7 +6901,7 @@ node_templates:
 The following example shows how to use the `$get_property` function
 traversing from the relationship to its target node:
 
-```{.yaml #s1}
+```.yaml #s1
 relationship_templates:
   my-connection:
     type: ConnectsTo
@@ -6917,7 +6917,7 @@ relationship of the database_endpoint requirement to the target
 capability in the target node) and accessing the port property of that
 capability:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:  
   mysql-database:
     type: Database
@@ -6954,7 +6954,7 @@ traverse over two requirement relationships, from the "wordpress" node to
 its database node and further to its "DBMS" host to get its
 "admin-credential" property:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:  
   mysql-database:
     type: Database
@@ -7038,7 +7038,7 @@ The following example uses a snippet of a WordPress
 [\[WordPress\]](#CIT_WORDPRESS) web application to show how to use the
 get_artifact function with an actual node template name:
 
-```{.yaml #s1}
+```.yaml #s1
 node_templates:
   wordpress:
     type: WordPress
@@ -7133,7 +7133,7 @@ following table:
 
 Usage example:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     my-node:
@@ -7460,7 +7460,7 @@ $concat: [<string_or_list_type_arg1>, ... ]
 
 The following code snippet shows an example of a `$concat` function:
 
-```{.yaml #s1}
+```.yaml #s1
 outputs:
   description: Concatenate the URL for a server from other template values
   server-url:
@@ -7492,7 +7492,7 @@ Argument|Mandatory|Type|Description
 
 The following code snippet shows example `$join` functions:
 
-```{.yaml #s1}
+```.yaml #s1
 outputs:
   example1:
     # Result: prefix_1111_suffix
@@ -7523,7 +7523,7 @@ Argument|Mandatory|Type|Description
 
 The following code snippet shows an example use of the `$token` function:
 
-```{.yaml #s1}
+```.yaml #s1
 outputs:
   webserver_port:
     description: the port provided at the end of my server's endpoint's IP address
@@ -7904,7 +7904,7 @@ The functions section can be defined both outside and/or inside a
   - Note that in that case the `$` (dollar sign) character will be put in
     front of the namespace name. For example:
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   rnd-nr: { $namespace1:random_generator: [ seed ] }
 ```
@@ -7952,7 +7952,7 @@ refinement rules:
 
 The following example shows the definition of a square root function:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   sqrt:
     signatures:
@@ -7977,7 +7977,7 @@ functions:
 The next `$sqrt` is similar to above, but uses a simplified type notation
 (in this short form no validation clause can be expressed):
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   sqrt:
     signatures:
@@ -7996,7 +7996,7 @@ functions:
 The following example shows a function that takes a list of arguments
 with different types:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   my_func_with_different_argument_types:
     signatures:
@@ -8018,7 +8018,7 @@ functions:
 The following snippet defines the same function as the example above,
 but in compact notation:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   my_func_with_different_argument_types:
     signatures:
@@ -8031,7 +8031,7 @@ functions:
 The arguments list can be empty or completely missing. In such a case,
 when using the function the arguments will be an empty list:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   get_random_nr:
     signatures:
@@ -8042,7 +8042,7 @@ functions:
 The following shows function signatures with polymorphic arguments and
 result lists:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   union:
     signatures:
@@ -8067,7 +8067,7 @@ functions:
 The following shows the use of an argument that is a map of lists of
 MyType:
 
-```{.yaml #s1}
+```.yaml #s1
 functions:
   complex_arg_function:
     signatures:
@@ -8087,7 +8087,7 @@ identify the right signature via the types of the function arguments.
 Also note the usage of a user-defined function with no parameters; an
 empty list is used for the arguments.
 
-```{.yaml #s1}
+```.yaml #s1
 properties:
   integer_union: { $union: [ [1, 7], [3, 4, 9], [15, 16] ] }
   float_union: { $union: [ [3.5, 8.8], [1.3] ] }
@@ -8184,7 +8184,7 @@ implementations for defined operations or notifications; that is, the
 The following example shows a custom interface used to define multiple
 configure operations.
 
-```{.yaml #s1}
+```.yaml #s1
 MyConfigure:
   description: My custom configure interface type
   inputs:
@@ -8464,7 +8464,7 @@ The following additional requirements apply:
 
 The following code snippet shows an example operation definition:
 
-```{.yaml #s1}
+```.yaml #s1
 interfaces:
   configure:
     pre-configure-source:
@@ -8481,7 +8481,7 @@ interfaces:
 
 The next example shows single-line grammar for the operation implementation:
 
-```{.yaml #s1}
+```.yaml #s1
 interfaces:
   configure:
     pre-configure-source:
@@ -8496,7 +8496,7 @@ interfaces:
 The following code snippet shows an example of the single-line grammar
 for the entire operation definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 interfaces:
   standard:
     start: scripts/start_server.sh
@@ -8969,7 +8969,7 @@ rules:
 
 The following shows an example artifact type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 JavaArchive:
   description: Java Archive artifact type
   mime_type: application/java-archive
@@ -9083,7 +9083,7 @@ redefined.
 The following example represents an artifact definition with property
 assignments:
 
-```{.yaml #s1}
+```.yaml #s1
 artifacts:
   sw-image:
     description: Image for virtual machine
@@ -9420,7 +9420,7 @@ have the following meaning:
 The following represents a list of activity definitions (using the short
 notation):
 
-```{.yaml #s1}
+```.yaml #s1
 - delegate: deploy
 - set_state: started
 - call_operation: standard.start
@@ -9487,7 +9487,7 @@ flowchart
 The following code snippet shows a possible TOSCA service template from which
 this service could be deployed:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: Template for deploying SD-WAN with three sites.
 
@@ -9564,7 +9564,7 @@ flowchart
 An implementation of such a service template is shown in the following
 code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: Template for deploying SD-WAN with a variable number of sites.
 
@@ -9610,7 +9610,7 @@ The following service template shows how the `$node_index` function is
 used to retrieve specific values from a list of input values in a
 service template:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 description: Template for deploying SD-WAN with a variable number of sites.
 
@@ -9673,7 +9673,7 @@ flowchart LR
 This scenario is supported using existing relationship syntax as
 shown in the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-left:
@@ -9723,7 +9723,7 @@ easily be accommodated using existing TOSCA grammar, as long as the
 requirement in the single node specifies the appropriate `count`
 value. This is shown in the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-right:
@@ -9784,7 +9784,7 @@ the number of nodes on the right side is 1.
 As before, the full mesh scenario can easily be defined using existing
 requirement syntax as shown in the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-left:
@@ -9860,7 +9860,7 @@ its source node. This following code snippet shows requirement
 definition grammar that uses the `$node_index` function to uniquely 
 identify target nodes:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-nodes:
@@ -9911,7 +9911,7 @@ source nodes, as long as each target node is only used once. To make
 sure each target node is only used once, the `allocations` keyname in
 the requirement can be used as shown in the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-nodes:
@@ -9989,7 +9989,7 @@ flowchart LR
 
 This pattern can be accomplished using the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     right:
@@ -10047,7 +10047,7 @@ flowchart LR
 
 This pattern can be implemented using the following code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   node_templates:
     right:
@@ -10078,7 +10078,7 @@ on the left than on the right. The following code snippet
 shows a *mismatched pairs* example where the orchestrator may have to
 cycle through the target nodes multiple times:
 
-```{.yaml #s1}
+```.yaml #s1
 service_template:
   inputs:
     number-of-right:
@@ -10448,7 +10448,7 @@ The following example shows a "Client" node type that defines a
 that nodes of type "Client" need exactly two "service" relationships
 to nodes of type "Server".
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 capability_types:
@@ -10493,7 +10493,7 @@ dummy((.)) ~~~  client
 This service can be implemented using the following TOSCA service
 template:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10548,7 +10548,7 @@ requirements of the two software nodes in the substituting
 template. The substitution mapping code in the following substituting
 service template shows how this is accomplished:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10635,7 +10635,7 @@ The requirement mapping syntax for this template distributes the two
 same* software node in the substituting template using two identical
 mappings for the two "service" requirements as follows:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10690,7 +10690,7 @@ states that two "service" requirements of the substituted node are
 mapped to two corresponding "service" requirements of the "software"
 node in the substituting template.
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10744,7 +10744,7 @@ grammar using the count. This syntax states that all "service" requirements
 of the substituted node are mapped to the corresponding "service"
 requirements of the "software" node in the substituting template.
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10797,7 +10797,7 @@ service_template:
 Imagine a scenario where nodes of type "Client" need to be hosted on
 nodes of type "Compute" as shown by the following type definitions:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 capability_types:
@@ -10840,7 +10840,7 @@ flowchart RL
 
 This example can be implemented using the following service template:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10887,7 +10887,7 @@ accomplished by mapping the "host" requirement of the "client" node
 twice, once to the "host" requirement of the "software1" node and once
 to the "host" requirement of the "software2" node.
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -10952,7 +10952,7 @@ flowchart RL
 
 The following service template shows an implementation of this example:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11013,7 +11013,7 @@ flowchart RL
 This can trivially be done using the syntax shown in the following
 code snippet:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11077,7 +11077,7 @@ the `count_range` in the corresponding requirement definition.
 The types defined in the following code snippet are used to illustrate
 these rules:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 capability_types:
@@ -11113,7 +11113,7 @@ one of those is mandatory.
 The following code snippet shows a valid substituting template for the
 "client" node in the template shown above:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11174,7 +11174,7 @@ substitution mapping defines three requirement mappings for the
 "service" requirements of the "software" nodes in the substituting
 template.
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11250,7 +11250,7 @@ means that only such requirement is guaranteed to exist.
 
 The following shows a corrected version of this substituting template:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11346,7 +11346,7 @@ are mapped to the corresponding "service" requirements of the "software1"
 node in the substituting template. This allows for the follwing compact
 syntax:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11407,7 +11407,7 @@ node, then the rest of the "service" requirements of the substituted
 node are mapped again to the "service" requirement of the "software1"
 node:
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 imports:
@@ -11580,7 +11580,7 @@ During group type derivation the keyname definitions follow these rules:
 
 The following represents an example group type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 group_types:
   Placement:
     description: My company's group type for placing nodes of type Software
@@ -11655,7 +11655,7 @@ have the following meaning:
 
 The following represents a group definition:
 
-```{.yaml #s1}
+```.yaml #s1
 groups:
   my-app-placement:
     type: Placement
@@ -11742,7 +11742,7 @@ rules:
 
 The following represents a policy type definition:
 
-```{.yaml #s1}
+```.yaml #s1
 policy_types:
   Placement.Container.Linux:
     description: My company's placement policy for linux 
@@ -11815,7 +11815,7 @@ have the following meaning:
 
 The following represents a policy definition:
 
-```{.yaml #s1}
+```.yaml #s1
 - my-compute-placement:
     type: Placement
     description: Apply my placement policy to my application's servers
@@ -12068,7 +12068,7 @@ have only one service template defined in a YAML file.
 The following represents a valid TOSCA template file acting as the CSAR
 `Entry-Definitions` file in an archive without a "TOSCA.meta" file.
 
-```{.yaml #s1}
+```.yaml #s1
 tosca_definitions_version: tosca_2_0
 
 metadata:

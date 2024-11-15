@@ -1,8 +1,7 @@
 
 The following code snippet shows an example node type definition:
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 MyApp:
   derived_from: SoftwareComponent
   description: My company's custom application
@@ -146,8 +145,7 @@ have the following meaning:
 
 The following code snippet shows an example node template definition:
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 node_templates:
   mysql:
     type: DBMS.MySQL
@@ -333,8 +331,7 @@ rules:
 
 The following code snippet shows an example relationship type definition:
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 AppDependency:
   derived_from: DependsOn
   valid_capability_types: [ SomeAppFeature ]
@@ -436,8 +433,7 @@ have the following meaning:
 
 The following code snippet shows an example relationship template definition:
 
-<!-- EDITOR_TAG{"type":"example","id":"s1","action":"start"} -->
-```yaml
+```.yaml #s1
 relationship_templates:
   storage-attachment:
     type: AttachesTo
